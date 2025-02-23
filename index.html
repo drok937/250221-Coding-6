@@ -1,16 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="script.js" type="module"> </script>
 </head>
 <body>
 <div class="slider-container">
-    <input id="freqSlider" type="range" min="100" max="1000" step="1"><p>Frequency</p> <!--frequency slider-->
+    <input id="freqSlider" type="range" min="100" max="1000" step="1" value="-60"><p>Frequency</p> <!--frequency slider-->
     
 </div>
 <div class="slider-container">
-    <input id="gainSlider" type="range" min="0" max="1" step="0.01"><p>Gain</p> <!--gain slider-->
+    <input id="gainSlider" type="range" min="-60" max="0" step="0.01"><p>Gain</p> <!--gain slider-->
     
 </div>
     <button id="startButton">start</button><!--start button-->
