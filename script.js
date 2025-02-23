@@ -16,7 +16,7 @@ gainNode.connect(audioCtx.destination);
 
 oscillator.type = "sine"; //wavetype
 oscillator.frequency.value = 440; //default frequency
-gainNode.gain.value = 0; // starting volume, silent
+gainNode.gain.value = 0.10; // starting volume, silent
 
 oscillator.start(); //start oscillator
 
@@ -24,18 +24,18 @@ oscillator.start(); //start oscillator
 
 //gate open function, make noise
 const startOscillator = function() { 
-gainNode.gain.value = 1;
+    // console.log(gainNode.gain.value);
+    gainNode.gain.value = 1.0;
+    
+    console.log("started");
+    console.log(gainNode.gain.value);
 };
 
 //gate close function, make silent
 const stopOscillator = function() { 
-gainNode.gain.value = 0;
+    gainNode.gain.value = 0;
+
 };
-
-
-document.getElementById("startButton").addEventListener("click", startOscillator); //link HTML start button to startOscillator function
-document.getElementById("stopButton").addEventListener("click", stopOscillator); //link HTML stop button to stopOscillator function
-
 
 //add sliding scale frequency updater
 const updateFrequency = function (event) {
@@ -44,9 +44,16 @@ const updateFrequency = function (event) {
 
 //update sliding scale gain updater
 const updateGain = function (event) {
-    gainNode.gain.value = event.target.value;
+    gainNode.gain.value = parseFloat(event.target.value);
+    console.log("gain updated");
+    console.log(gainNode.gain.value);
 };
 
+
+
+
+document.getElementById("startButton").addEventListener("click", startOscillator); //link HTML start button to startOscillator function
+document.getElementById("stopButton").addEventListener("click", stopOscillator); //link HTML stop button to stopOscillator function
 
 
 document.getElementById("freqSlider").addEventListener("input", updateFrequency); //link HTML freq slider to Oscillator freq
