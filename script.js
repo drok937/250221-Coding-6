@@ -48,7 +48,6 @@ const updateGain = function (event) {
     let dbValue = event.target.value;
     let linearGain = dbValue <= -60 ? 0 : Math.pow(10, dbValue / 20); // Prevent extremely small values
     gainNode.gain.value = linearGain;
-    gainNode.gain.value = event.target.value;
 };
 
 
