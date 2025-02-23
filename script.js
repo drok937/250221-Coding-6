@@ -42,9 +42,12 @@ const updateFrequency = function (event) {
     oscillator.frequency.value = event.target.value;
 };
 
-//update sliding scale gain updater
+//update sliding scale gain updater. HAd some help from AI to convert to dB
+
 const updateGain = function (event) {
-    gainNode.gain.value = event.target.value;
+    let dbValue = event.target.value;
+    let linearGain = dbValue <= -60 ? 0 : Math.pow(10, dbValue / 20); // Prevent extremely small values
+    gainNode.gain.value = linearGain;
 };
 
 
